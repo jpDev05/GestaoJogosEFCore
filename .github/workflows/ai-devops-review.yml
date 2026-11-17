@@ -1,0 +1,12 @@
+name: AI DevOps Review
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  ai-devops-review:
+    name: AI DevOps Review
+    uses: jpDev05/.github-workflows-notion.yml/.github/workflows/ai-devops-review.yml@v1.0.1
