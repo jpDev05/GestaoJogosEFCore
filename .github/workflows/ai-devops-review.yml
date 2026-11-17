@@ -27,3 +27,4 @@ jobs:
           groq-api-key: ${{ secrets.GROQ_API_KEY }}
           notion-token: ${{ secrets.NOTION_TOKEN }}
           notion-enabled: "true"
+          notion-data-source: "3ec40c50-9a90-80f9-b592-fb72115c0876"
