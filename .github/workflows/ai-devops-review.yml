@@ -1,12 +1,29 @@
+
 name: AI DevOps Review
 
 on:
-  pull_request:
   push:
     branches:
       - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
-  ai-devops-review:
-    name: AI DevOps Review
-    uses: jpDev05/.github-workflows-notion.yml/.github/workflows/ai-devops-review.yml@v1.0.1
+  review:
+    name: AI Code Review
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: AI DevOps Review
+        uses: jpDev05/.github-workflows-notion.yml@v1.0.1
+        with:
+          groq-api-key: ${{ secrets.GROQ_API_KEY }}
+          notion-token: ${{ secrets.NOTION_TOKEN }}
+          notion-enabled: "true"
